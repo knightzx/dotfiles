@@ -17,6 +17,6 @@ clock -sf 'S%a %d/%m %H:%M' > "$PANEL_FIFO" &
 
 . /home/cuong/.config/bspwm/panel_colors
 
-cat "$PANEL_FIFO" | /home/cuong/.config/bspwm/panel_bar | bar-aint-recursive -g 896x"$PANEL_HEIGHT"+64 -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND"  | while read line; do eval "$line"; done &
+cat "$PANEL_FIFO" | /home/cuong/.config/bspwm/panel_bar |bar-aint-recursive -g 896x"$PANEL_HEIGHT"+64 -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND"  | while read line; do eval "$line"; done &
 
 wait

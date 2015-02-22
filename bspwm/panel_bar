@@ -59,11 +59,11 @@ while read -r line ; do
 						;;
 					u*)
 						# urgent desktop
-						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}%{A:bspc desktop -f ${name}:} ${name} %{B-}%{F-}"
 						;;
 					L*)
 						# layout
-						layout="%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG}%{A:bspc desktop -l next:} ${name} %{A}%{B-}%{F-}"
+						layout="%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} ${name} %{A}%{B-}%{F-}"
 						;;
 				esac
 				shift
@@ -71,6 +71,5 @@ while read -r line ; do
 			;;
 	esac
         menu="%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG}%{A:mygtkmenu .mygtkmenu.txt:} Menu %{A}%{B-}"
-        winlist="%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG}%{A:listwin.sh:} Winlist %{A}%{B-}"
-	printf "%s\n" "%{l}${menu}|${winlist}|%{A4:bspc desktop -f prev:}%{A5:bspc desktop -f next:}${wm_infos}%{A}%{A}|%{A3:bspc window -c:}${title}%{A}%{r}${layout}|${sys_infos}"
+	printf "%s\n" "%{l}${menu}|%{A3:listwin.sh:}%{A4:bspc desktop -f prev:}%{A5:bspc desktop -f next:}${wm_infos}%{A}%{A}%{A}|%{A3:bspc window -c:}${title}%{A}%{r}%{A:bspc desktop -l next:}${layout}%{A}|${sys_infos}"
 done
